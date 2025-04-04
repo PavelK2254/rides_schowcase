@@ -1,0 +1,2 @@
+/Users/pavelkoifman/StudioProjects/rides_showcase/android/app/.cxx/Debug/1k566z41/x86_64/CMakeFiles/edit_cache.dir
+/Users/pavelkoifman/StudioProjects/rides_showcase/android/app/.cxx/Debug/1k566z41/x86_64/CMakeFiles/rebuild_cache.dir
