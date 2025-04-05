@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 final ThemeData darkTheme = ThemeData(
   useMaterial3: true,
   brightness: Brightness.dark,
+  fontFamily: 'Nunito',
   scaffoldBackgroundColor: const Color(0xFF121212),
   primaryColor: const Color(0xFF6A4DFF),
   colorScheme: ColorScheme.fromSeed(

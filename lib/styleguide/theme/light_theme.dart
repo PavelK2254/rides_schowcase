@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 final ThemeData lightTheme = ThemeData(
   useMaterial3: true,
   brightness: Brightness.light,
+  fontFamily: 'Nunito',
   scaffoldBackgroundColor: Colors.white,
   primaryColor: const Color(0xFF6A4DFF), // Vibrant purple used for buttons
   colorScheme: ColorScheme.fromSeed(
