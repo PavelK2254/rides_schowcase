@@ -69,6 +69,9 @@ final ThemeData darkTheme = ThemeData(
     bodyLarge: TextStyle(fontSize: 16, color: Colors.white),
     bodyMedium: TextStyle(fontSize: 14, color: Colors.white70),
     labelLarge: TextStyle(
-        fontSize: 14, fontWeight: FontWeight.w600, color: Colors.white),
+      fontSize: 14,
+      fontWeight: FontWeight.w600,
+      color: Colors.white,
+    ),
   ),
 );
