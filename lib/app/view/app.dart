@@ -28,8 +28,7 @@ class App extends StatelessWidget {
               providers: [
                 BlocProvider<MapWidgetCubit>(
                   create: (context) =>
-                  MapWidgetCubit()
-                    ..loadInitialLocation(),
+                      MapWidgetCubit(context.read())..loadInitialLocation(),
                 ),
                 BlocProvider<WhereToCubit>(
                   create: (context) => WhereToCubit(context.read()),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rides_showcase/feature/main_flow/domain/repositories/main_flow_repository.dart';
 import 'package:rides_showcase/feature/main_flow/presentation/bloc/map_widget_cubit.dart';
 import 'package:rides_showcase/feature/main_flow/presentation/bloc/where_to_cubit.dart';
 import 'package:rides_showcase/feature/main_flow/presentation/widgets/map_widget.dart';
@@ -29,7 +30,10 @@ class SetDestinationScreen extends StatelessWidget {
                 backgroundColor: Theme.of(context).colorScheme.surface,
                 builder: (BuildContext _) => WhereToContent(
                   onLocationSelected: mapCubit.setMapLocation,
-                  cubit: context.read<WhereToCubit>(), onConfirm: () {  },
+                  cubit: context.read<WhereToCubit>(),
+                  onConfirm: () {
+                    mapCubit.addMapMarkers(context);
+                  },
                 ),
               );
             },
@@ -38,7 +42,17 @@ class SetDestinationScreen extends StatelessWidget {
             padding: const EdgeInsets.all(medium),
             child: ElevatedButton(
               onPressed: () {
-                // Navigate to another screen or perform an action
+                context.read<MainFlowRepository>().pickupLocation != null &&
+                        context
+                                .read<MainFlowRepository>()
+                                .destinationLocation !=
+                            null
+                    ? Navigator.pushNamed(context, '/confirm')
+                    : ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Please select a destination'),
+                        ),
+                      );
               },
               child: const Text('Confirm destination'),
             ),
