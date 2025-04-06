@@ -7,7 +7,7 @@ class WhereToField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap, // Optional: for navigation to search screen
+      onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
         margin: const EdgeInsets.symmetric(horizontal: 16),

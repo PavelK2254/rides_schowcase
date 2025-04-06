@@ -4,18 +4,21 @@ class AddressTextField extends StatelessWidget {
   const AddressTextField.pickup({
     required this.controller,
     super.key,
+    this.errorText,
   })  : label = 'Pickup Point',
         hint = 'Enter pickup location';
 
   const AddressTextField.destination({
     required this.controller,
     super.key,
+    this.errorText,
   })  : label = 'Destination Point',
         hint = 'Enter destination location';
 
   final TextEditingController controller;
   final String label;
   final String hint;
+  final String? errorText;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +28,7 @@ class AddressTextField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: label,
         hintText: hint,
+        errorText: errorText,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
           borderSide: BorderSide.none,
