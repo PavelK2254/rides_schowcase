@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:rides_showcase/feature/main_flow/domain/repositories/main_flow_repository.dart';
+import 'package:rides_showcase/services/geocoding_servcice.dart';
 import 'package:rxdart/rxdart.dart';
 
 part 'where_to_state.dart';
@@ -10,7 +11,8 @@ part 'where_to_state.dart';
 const kDebounceDurationMS = Duration(milliseconds: 500);
 
 class WhereToCubit extends Cubit<WhereToState> {
-  WhereToCubit(this._mainFlowRepo) : super(WhereToInitial()) {
+  WhereToCubit(this._mainFlowRepo, this._geocodingService)
+      : super(WhereToInitial()) {
     _setupListeners();
   }
 
@@ -23,7 +25,7 @@ class WhereToCubit extends Cubit<WhereToState> {
     _pickupBSubject.debounceTime(kDebounceDurationMS).listen((event) async {
       if (event.length > 3) {
         try {
-          final locations = await locationFromAddress(event);
+          final locations = await _geocodingService.locationFromAddress(event);
           final firstLocation = locations.first;
           _mainFlowRepo.setPickupLocation(firstLocation);
           emit(
@@ -43,7 +45,7 @@ class WhereToCubit extends Cubit<WhereToState> {
         .listen((event) async {
       if (event.length > 3) {
         try {
-          final locations = await locationFromAddress(event);
+          final locations = await _geocodingService.locationFromAddress(event);
           final firstLocation = locations.first;
           _mainFlowRepo.setDestinationLocation(firstLocation);
           emit(
@@ -64,4 +66,5 @@ class WhereToCubit extends Cubit<WhereToState> {
   final MainFlowRepository _mainFlowRepo;
   final _pickupBSubject = BehaviorSubject<String>();
   final _destinationBSubject = BehaviorSubject<String>();
+  final GeocodingService _geocodingService;
 }

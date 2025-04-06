@@ -5,6 +5,8 @@ import 'package:rides_showcase/feature/main_flow/presentation/bloc/map_widget_cu
 import 'package:rides_showcase/feature/main_flow/presentation/bloc/where_to_cubit.dart';
 import 'package:rides_showcase/feature/main_flow/presentation/pages/set_destination_screen.dart';
 import 'package:rides_showcase/l10n/l10n.dart';
+import 'package:rides_showcase/services/geocoding_servcice.dart';
+import 'package:rides_showcase/services/location_provider.dart';
 import 'package:rides_showcase/styleguide/theme/dark_theme.dart';
 import 'package:rides_showcase/styleguide/theme/light_theme.dart';
 import 'package:rides_showcase/styleguide/theme/theme_cubit.dart';
@@ -28,10 +30,11 @@ class App extends StatelessWidget {
               providers: [
                 BlocProvider<MapWidgetCubit>(
                   create: (context) =>
-                      MapWidgetCubit(context.read())..loadInitialLocation(),
+                      MapWidgetCubit(context.read(), LocationProvider())
+                        ..loadInitialLocation(),
                 ),
                 BlocProvider<WhereToCubit>(
-                  create: (context) => WhereToCubit(context.read()),
+                  create: (context) => WhereToCubit(context.read(),GeocodingService()),
                 ),
               ],
               child: const SetDestinationScreen(),

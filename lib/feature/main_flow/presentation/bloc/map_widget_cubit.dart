@@ -13,10 +13,11 @@ part 'map_widget_state.dart';
 const _mockLocation = LatLng(37.42796133580664, -122.085749655962);
 
 class MapWidgetCubit extends Cubit<MapWidgetState> {
-  MapWidgetCubit(this._mainFlowRepository)
+  MapWidgetCubit(this._mainFlowRepository,this._locationProvider)
       : super(const HomeScreenInitial(currentLocation: _mockLocation));
 
   final MainFlowRepository _mainFlowRepository;
+  final LocationProvider _locationProvider;
   GoogleMapController? _mapController;
 
   //ignore: avoid_setters_without_getters
@@ -25,38 +26,30 @@ class MapWidgetCubit extends Cubit<MapWidgetState> {
   }
 
   Future<void> loadInitialLocation() async {
-    try {
-      final result = await LocationProvider().getCurrentLocation();
-      await _mapController?.animateCamera(
-        CameraUpdate.newCameraPosition(
-          CameraPosition(
-            target: LatLng(
-              result.latitude ?? _mockLocation.latitude,
-              result.longitude ?? _mockLocation.longitude,
-            ),
-            zoom: 14.4746,
+    final result = await _locationProvider.getCurrentLocation();
+    await _mapController?.animateCamera(
+      CameraUpdate.newCameraPosition(
+        CameraPosition(
+          target: LatLng(
+            result.latitude ?? _mockLocation.latitude,
+            result.longitude ?? _mockLocation.longitude,
           ),
+          zoom: 14.4746,
         ),
-      );
-    } catch (error) {
-      //TODO: Handle error
-    }
+      ),
+    );
   }
 
   Future<void> setMapLocation(Location location) async {
     final latLng = LatLng(location.latitude, location.longitude);
-    try {
-      await _mapController?.animateCamera(
-        CameraUpdate.newCameraPosition(
-          CameraPosition(
-            target: latLng,
-            zoom: 14.4746,
-          ),
+    await _mapController?.animateCamera(
+      CameraUpdate.newCameraPosition(
+        CameraPosition(
+          target: latLng,
+          zoom: 14.4746,
         ),
-      );
-    } catch (error) {
-      //TODO: Handle error
-    }
+      ),
+    );
   }
 
   void addMapMarkers(BuildContext context) {

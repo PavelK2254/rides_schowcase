@@ -9,10 +9,9 @@ class MapWidget extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<MapWidgetCubit, MapWidgetState>(
-      builder: (context, state) {
-        return SizedBox(
+  Widget build(BuildContext context) =>
+      BlocBuilder<MapWidgetCubit, MapWidgetState>(
+        builder: (context, state) => SizedBox(
           width: MediaQuery.sizeOf(context).width,
           height: MediaQuery.sizeOf(context).height / 3,
           child: Card(
@@ -36,8 +35,6 @@ class MapWidget extends StatelessWidget {
               ),
             ),
           ),
-        );
-      },
-    );
-  }
+        ),
+      );
 }

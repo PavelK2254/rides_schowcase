@@ -21,29 +21,27 @@ class AddressTextField extends StatelessWidget {
   final String? errorText;
 
   @override
-  Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      onTapOutside: (_) => FocusScope.of(context).unfocus,
-      decoration: InputDecoration(
-        labelText: label,
-        hintText: hint,
-        errorText: errorText,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: BorderSide.none,
+  Widget build(BuildContext context) => TextField(
+        controller: controller,
+        onTapOutside: (_) => FocusScope.of(context).unfocus,
+        decoration: InputDecoration(
+          labelText: label,
+          hintText: hint,
+          errorText: errorText,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+            borderSide: BorderSide.none,
+          ),
+          filled: true,
+          fillColor: Theme.of(context).inputDecorationTheme.fillColor,
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+          prefixIcon: const Icon(Icons.location_on, color: Colors.grey),
+          hintStyle: TextStyle(
+            color: Colors.grey.shade500,
+            fontSize: 16,
+          ),
+          prefixIconColor: Colors.grey.shade500,
         ),
-        filled: true,
-        fillColor: Theme.of(context).inputDecorationTheme.fillColor,
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-        prefixIcon: const Icon(Icons.location_on, color: Colors.grey),
-        hintStyle: TextStyle(
-          color: Colors.grey.shade500,
-          fontSize: 16,
-        ),
-        prefixIconColor: Colors.grey.shade500,
-      ),
-    );
-  }
+      );
 }

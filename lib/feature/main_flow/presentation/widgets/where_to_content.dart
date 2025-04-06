@@ -18,17 +18,16 @@ class WhereToContent extends StatelessWidget {
   final void Function() onConfirm;
 
   @override
-  Widget build(BuildContext context) {
-    return BlocConsumer<WhereToCubit, WhereToState>(
-      listenWhen: (previous, current) => previous != current,
-      listener: (context, state) {
-        if (state is WhereToLoaded) {
-          onLocationSelected(state.location);
-        }
-      },
-      bloc: cubit,
-      builder: (context, state) {
-        return Padding(
+  Widget build(BuildContext context) =>
+      BlocConsumer<WhereToCubit, WhereToState>(
+        listenWhen: (previous, current) => previous != current,
+        listener: (context, state) {
+          if (state is WhereToLoaded) {
+            onLocationSelected(state.location);
+          }
+        },
+        bloc: cubit,
+        builder: (context, state) => Padding(
           padding: EdgeInsets.fromLTRB(
             medium,
             medium,
@@ -76,8 +75,6 @@ class WhereToContent extends StatelessWidget {
               ),
             ],
           ),
-        );
-      },
-    );
-  }
+        ),
+      );
 }
