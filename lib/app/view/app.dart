@@ -34,7 +34,8 @@ class App extends StatelessWidget {
                         ..loadInitialLocation(),
                 ),
                 BlocProvider<WhereToCubit>(
-                  create: (context) => WhereToCubit(context.read(),GeocodingService()),
+                  create: (context) =>
+                      WhereToCubit(context.read(), GeocodingService()),
                 ),
               ],
               child: const SetDestinationScreen(),

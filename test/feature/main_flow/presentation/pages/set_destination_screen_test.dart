@@ -20,8 +20,8 @@ void main() {
 
   setUp(() {
     mainFlowRepository = MainFlowRepository();
-    mapWidgetCubit = MapWidgetCubit(mainFlowRepository,LocationProvider());
-    whereToCubit = WhereToCubit(mainFlowRepository,MockGeocodingService());
+    mapWidgetCubit = MapWidgetCubit(mainFlowRepository, LocationProvider());
+    whereToCubit = WhereToCubit(mainFlowRepository, MockGeocodingService());
   });
 
   Widget createTestWidget() {

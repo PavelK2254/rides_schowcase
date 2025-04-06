@@ -13,7 +13,7 @@ void main() {
           child: const App(),
         ),
       );
-      
+
       // Verify the SetDestinationScreen is rendered
       expect(find.byType(SetDestinationScreen), findsOneWidget);
     });

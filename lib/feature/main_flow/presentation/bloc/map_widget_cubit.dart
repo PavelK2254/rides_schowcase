@@ -13,7 +13,7 @@ part 'map_widget_state.dart';
 const _mockLocation = LatLng(37.42796133580664, -122.085749655962);
 
 class MapWidgetCubit extends Cubit<MapWidgetState> {
-  MapWidgetCubit(this._mainFlowRepository,this._locationProvider)
+  MapWidgetCubit(this._mainFlowRepository, this._locationProvider)
       : super(const HomeScreenInitial(currentLocation: _mockLocation));
 
   final MainFlowRepository _mainFlowRepository;
