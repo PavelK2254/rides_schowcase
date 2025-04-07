@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rides_showcase/feature/main_flow/presentation/bloc/map_widget_cubit.dart';
+import 'package:rides_showcase/styleguide/dimensions.dart';
 
 class MapWidget extends StatelessWidget {
   const MapWidget({
@@ -17,11 +18,11 @@ class MapWidget extends StatelessWidget {
           child: Card(
             color: Colors.white,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(cardBorderRadius),
             ),
-            margin: const EdgeInsets.all(16),
+            margin: const EdgeInsets.all(medium),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(cardBorderRadius),
               child: GoogleMap(
                 circles: state.circles.toSet(),
                 initialCameraPosition: CameraPosition(

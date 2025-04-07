@@ -6,3 +6,5 @@ const double large = 24;
 const double xLarge = 32;
 const double xxLarge = 40;
 const double xxxLarge = 48;
+
+const double cardBorderRadius = 20;
