@@ -4,9 +4,9 @@ import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart' as location_pkg;
 import 'package:mocktail/mocktail.dart';
+import 'package:rides_showcase/feature/main_flow/data/remote/data_sources/location_provider.dart';
 import 'package:rides_showcase/feature/main_flow/domain/repositories/main_flow_repository.dart';
 import 'package:rides_showcase/feature/main_flow/presentation/bloc/map_widget_cubit.dart';
-import 'package:rides_showcase/services/location_provider.dart';
 
 // Mock location constants
 const _mockLocation = LatLng(37.42796133580664, -122.085749655962);
