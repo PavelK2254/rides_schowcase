@@ -30,10 +30,6 @@ import GoogleMaps
                 }
             }
 
-      
-      
- 
-    //GMSServices.provideAPIKey("AIzaSyCf5fdINazpeYF0lGTqjX4MnTZ4e7XhZtY")
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
