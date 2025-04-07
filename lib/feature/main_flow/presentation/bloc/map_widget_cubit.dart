@@ -5,8 +5,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:rides_showcase/feature/main_flow/data/remote/data_sources/location_provider.dart';
 import 'package:rides_showcase/feature/main_flow/domain/repositories/main_flow_repository.dart';
-import 'package:rides_showcase/services/location_provider.dart';
 
 part 'map_widget_state.dart';
 

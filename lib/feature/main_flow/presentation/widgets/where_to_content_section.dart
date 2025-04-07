@@ -5,8 +5,8 @@ import 'package:rides_showcase/feature/main_flow/presentation/bloc/where_to_cubi
 import 'package:rides_showcase/feature/main_flow/presentation/widgets/address_text_field.dart';
 import 'package:rides_showcase/styleguide/dimensions.dart';
 
-class WhereToContent extends StatelessWidget {
-  const WhereToContent({
+class WhereToContentSection extends StatelessWidget {
+  const WhereToContentSection({
     required this.onLocationSelected,
     required this.cubit,
     required this.onConfirm,
