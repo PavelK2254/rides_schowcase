@@ -9,4 +9,8 @@ class AppNavigation {
   void goToRideDetails(BuildContext context) {
     context.go('/ride-details');
   }
+
+  void goToRideSummary(BuildContext context) {
+    context.go('/ride-details/ride-summary');
+  }
 }

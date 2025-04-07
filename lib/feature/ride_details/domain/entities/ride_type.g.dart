@@ -11,7 +11,6 @@ _RideType _$RideTypeFromJson(Map<String, dynamic> json) => _RideType(
       imagePath: json['imagePath'] as String,
       description: json['description'] as String,
       price: json['price'] as String,
-      eta: json['eta'] as String,
     );
 
 Map<String, dynamic> _$RideTypeToJson(_RideType instance) => <String, dynamic>{
@@ -19,5 +18,4 @@ Map<String, dynamic> _$RideTypeToJson(_RideType instance) => <String, dynamic>{
       'imagePath': instance.imagePath,
       'description': instance.description,
       'price': instance.price,
-      'eta': instance.eta,
     };

@@ -19,7 +19,6 @@ mixin _$RideType implements DiagnosticableTreeMixin {
   String get imagePath;
   String get description;
   String get price;
-  String get eta;
 
   /// Create a copy of RideType
   /// with the given fields replaced by the non-null parameter values.
@@ -38,8 +37,7 @@ mixin _$RideType implements DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('imagePath', imagePath))
       ..add(DiagnosticsProperty('description', description))
-      ..add(DiagnosticsProperty('price', price))
-      ..add(DiagnosticsProperty('eta', eta));
+      ..add(DiagnosticsProperty('price', price));
   }
 
   @override
@@ -52,18 +50,17 @@ mixin _$RideType implements DiagnosticableTreeMixin {
                 other.imagePath == imagePath) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.price, price) || other.price == price) &&
-            (identical(other.eta, eta) || other.eta == eta));
+            (identical(other.price, price) || other.price == price));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, imagePath, description, price, eta);
+      Object.hash(runtimeType, name, imagePath, description, price);
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RideType(name: $name, imagePath: $imagePath, description: $description, price: $price, eta: $eta)';
+    return 'RideType(name: $name, imagePath: $imagePath, description: $description, price: $price)';
   }
 }
 
@@ -72,12 +69,7 @@ abstract mixin class $RideTypeCopyWith<$Res> {
   factory $RideTypeCopyWith(RideType value, $Res Function(RideType) _then) =
       _$RideTypeCopyWithImpl;
   @useResult
-  $Res call(
-      {String name,
-      String imagePath,
-      String description,
-      String price,
-      String eta});
+  $Res call({String name, String imagePath, String description, String price});
 }
 
 /// @nodoc
@@ -96,7 +88,6 @@ class _$RideTypeCopyWithImpl<$Res> implements $RideTypeCopyWith<$Res> {
     Object? imagePath = null,
     Object? description = null,
     Object? price = null,
-    Object? eta = null,
   }) {
     return _then(_self.copyWith(
       name: null == name
@@ -115,10 +106,6 @@ class _$RideTypeCopyWithImpl<$Res> implements $RideTypeCopyWith<$Res> {
           ? _self.price
           : price // ignore: cast_nullable_to_non_nullable
               as String,
-      eta: null == eta
-          ? _self.eta
-          : eta // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -130,8 +117,7 @@ class _RideType with DiagnosticableTreeMixin implements RideType {
       {required this.name,
       required this.imagePath,
       required this.description,
-      required this.price,
-      required this.eta});
+      required this.price});
   factory _RideType.fromJson(Map<String, dynamic> json) =>
       _$RideTypeFromJson(json);
 
@@ -143,8 +129,6 @@ class _RideType with DiagnosticableTreeMixin implements RideType {
   final String description;
   @override
   final String price;
-  @override
-  final String eta;
 
   /// Create a copy of RideType
   /// with the given fields replaced by the non-null parameter values.
@@ -168,8 +152,7 @@ class _RideType with DiagnosticableTreeMixin implements RideType {
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('imagePath', imagePath))
       ..add(DiagnosticsProperty('description', description))
-      ..add(DiagnosticsProperty('price', price))
-      ..add(DiagnosticsProperty('eta', eta));
+      ..add(DiagnosticsProperty('price', price));
   }
 
   @override
@@ -182,18 +165,17 @@ class _RideType with DiagnosticableTreeMixin implements RideType {
                 other.imagePath == imagePath) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.price, price) || other.price == price) &&
-            (identical(other.eta, eta) || other.eta == eta));
+            (identical(other.price, price) || other.price == price));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, imagePath, description, price, eta);
+      Object.hash(runtimeType, name, imagePath, description, price);
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RideType(name: $name, imagePath: $imagePath, description: $description, price: $price, eta: $eta)';
+    return 'RideType(name: $name, imagePath: $imagePath, description: $description, price: $price)';
   }
 }
 
@@ -204,12 +186,7 @@ abstract mixin class _$RideTypeCopyWith<$Res>
       __$RideTypeCopyWithImpl;
   @override
   @useResult
-  $Res call(
-      {String name,
-      String imagePath,
-      String description,
-      String price,
-      String eta});
+  $Res call({String name, String imagePath, String description, String price});
 }
 
 /// @nodoc
@@ -228,7 +205,6 @@ class __$RideTypeCopyWithImpl<$Res> implements _$RideTypeCopyWith<$Res> {
     Object? imagePath = null,
     Object? description = null,
     Object? price = null,
-    Object? eta = null,
   }) {
     return _then(_RideType(
       name: null == name
@@ -246,10 +222,6 @@ class __$RideTypeCopyWithImpl<$Res> implements _$RideTypeCopyWith<$Res> {
       price: null == price
           ? _self.price
           : price // ignore: cast_nullable_to_non_nullable
-              as String,
-      eta: null == eta
-          ? _self.eta
-          : eta // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }

@@ -1,5 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:rides_showcase/feature/ride_details/domain/repositories/ride_details_repository.dart';
 import 'package:rides_showcase/feature/ride_details/presentation/bloc/ride_options_cubit.dart';
+
+class MockRideDetailsRepository extends Mock implements RideDetailsRepository {}
 
 //ignore_for_file: lines_longer_than_80_chars
 void main() {
@@ -7,7 +11,8 @@ void main() {
     late RideOptionsCubit cubit;
 
     setUp(() {
-      cubit = RideOptionsCubit();
+      cubit =
+          RideOptionsCubit(rideDetailsRepository: MockRideDetailsRepository());
     });
 
     tearDown(() {

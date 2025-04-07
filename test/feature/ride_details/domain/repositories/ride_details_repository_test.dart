@@ -23,14 +23,12 @@ void main() {
         imagePath: '',
         description: '',
         price: '',
-        eta: '',
       ),
       const RideType(
         name: 'Type2',
         imagePath: '',
         description: '',
         price: '',
-        eta: '',
       ),
     ];
     when(() => mockClient.getRemoteRideTypes())
