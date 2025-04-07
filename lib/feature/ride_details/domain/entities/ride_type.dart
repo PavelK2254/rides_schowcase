@@ -11,7 +11,6 @@ abstract class RideType with _$RideType {
     required String imagePath,
     required String description,
     required String price,
-    required String eta,
   }) = _RideType;
 
   factory RideType.fromJson(Map<String, dynamic> json) =>

@@ -54,7 +54,7 @@ class RideContainer extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
-            '${ride.price} • ${ride.eta}',
+            ride.price,
             style: Theme.of(context).textTheme.labelMedium?.copyWith(
                   color: Colors.black87,
                   fontWeight: FontWeight.w500,

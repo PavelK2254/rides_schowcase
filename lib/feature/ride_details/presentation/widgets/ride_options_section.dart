@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rides_showcase/feature/ride_details/presentation/bloc/ride_options_cubit.dart';
 import 'package:rides_showcase/feature/ride_details/presentation/widgets/options_tile.dart';
+import 'package:rides_showcase/utils/utils.dart';
 
 class RideOptionsSection extends StatelessWidget {
   const RideOptionsSection({super.key});
@@ -15,7 +16,7 @@ class RideOptionsSection extends StatelessWidget {
             OptionTile(
               icon: Icons.schedule_outlined,
               title: 'When',
-              subtitle: _getDateSubtitle(state),
+              subtitle: getDateSubtitle(state.dateTime),
               onTap: () {
                 showDatePicker(
                   context: context,
@@ -50,7 +51,7 @@ class RideOptionsSection extends StatelessWidget {
             OptionTile(
               icon: Icons.people_outline,
               title: 'Passengers',
-              subtitle: _getPassengersSubtitle(state),
+              subtitle: getPassengersSubtitle(state.passengers),
               onTap: () {
                 showAdaptiveDialog<void>(
                   context: context,
@@ -95,21 +96,5 @@ class RideOptionsSection extends StatelessWidget {
         );
       },
     );
-  }
-
-  String _getDateSubtitle(RideOptionsState state) {
-    if (state.dateTime == null) {
-      return 'Select a date and time';
-    } else {
-      return '${state.dateTime!.day}/${state.dateTime!.month}/${state.dateTime!.year} ${state.dateTime!.hour}:${state.dateTime!.minute}';
-    }
-  }
-
-  String _getPassengersSubtitle(RideOptionsState state) {
-    if (state.passengers == 1) {
-      return '1 Passenger';
-    } else {
-      return '${state.passengers} Passengers';
-    }
   }
 }

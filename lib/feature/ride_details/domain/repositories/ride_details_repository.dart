@@ -8,7 +8,7 @@ class RideDetailsRepository {
   final RideDetailsClient rideDetailsClient;
 
   RideType? currentRideType;
-  DateTime? selectedDate;
+  DateTime selectedDate = DateTime.now();
   int passengerAmount = 1;
 
   Future<Either<String, List<RideType>>> fetchRideDetails() async {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rides_showcase/feature/ride_details/presentation/widgets/ride_options_section.dart';
 import 'package:rides_showcase/feature/ride_details/presentation/widgets/ride_type_carousel.dart';
+import 'package:rides_showcase/navigation/app_navigation.dart';
 import 'package:rides_showcase/styleguide/dimensions.dart';
 
 class RideDetailsScreen extends StatelessWidget {
@@ -28,7 +29,9 @@ class RideDetailsScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  AppNavigation().goToRideSummary(context);
+                },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(

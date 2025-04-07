@@ -16,6 +16,7 @@ class RideTypeCarouselCubit extends Cubit<RideTypeCarouselState> {
     result.fold((error) {
       emit(RideTypeCarouselError(error));
     }, (rideTypes) {
+      rideDetailsRepository.currentRideType = rideTypes.first;
       emit(RideTypeCarouselLoaded(rideTypes));
     });
   }

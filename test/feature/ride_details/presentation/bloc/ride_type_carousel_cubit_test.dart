@@ -38,14 +38,12 @@ void main() {
             imagePath: '',
             description: '',
             price: '',
-            eta: '',
           ),
           const RideType(
             name: 'Type2',
             imagePath: '',
             description: '',
             price: '',
-            eta: '',
           ),
         ];
         when(() => mockRepository.fetchRideDetails())
@@ -59,14 +57,12 @@ void main() {
             imagePath: '',
             description: '',
             price: '',
-            eta: '',
           ),
           RideType(
             name: 'Type2',
             imagePath: '',
             description: '',
             price: '',
-            eta: '',
           ),
         ]),
       ],
@@ -92,7 +88,6 @@ void main() {
           imagePath: '',
           description: '',
           price: '',
-          eta: '',
         );
         cubit.setCurrentRideType(rideType);
       },
@@ -102,7 +97,6 @@ void main() {
           imagePath: '',
           description: '',
           price: '',
-          eta: '',
         );
         verify(() => mockRepository.currentRideType = rideType).called(1);
       },

@@ -10,6 +10,7 @@ import 'package:rides_showcase/feature/ride_details/data/repositories/ride_detai
 import 'package:rides_showcase/feature/ride_details/domain/repositories/ride_details_repository.dart';
 import 'package:rides_showcase/feature/ride_details/presentation/bloc/ride_options_cubit.dart';
 import 'package:rides_showcase/feature/ride_details/presentation/bloc/ride_type_carousel_cubit.dart';
+import 'package:rides_showcase/feature/ride_summary/domain/repositories/ride_summary_repository.dart';
 import 'package:rides_showcase/l10n/l10n.dart';
 import 'package:rides_showcase/navigation/router.dart';
 import 'package:rides_showcase/styleguide/theme/dark_theme.dart';
@@ -30,6 +31,7 @@ class App extends StatelessWidget {
           create: (_) =>
               RideDetailsRepository(rideDetailsClient: RideDetailsClient()),
         ),
+        RepositoryProvider(create: (_) => RideSummaryRepository()),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, themeMode) {
@@ -54,12 +56,12 @@ class App extends StatelessWidget {
                   ),
                   BlocProvider<RideTypeCarouselCubit>(
                     create: (context) => RideTypeCarouselCubit(
-                      rideDetailsRepository:
-                          context.read<RideDetailsRepository>(),
+                      rideDetailsRepository: context.read(),
                     )..loadRideTypes(),
                   ),
                   BlocProvider<RideOptionsCubit>(
-                    create: (context) => RideOptionsCubit(),
+                    create: (context) =>
+                        RideOptionsCubit(rideDetailsRepository: context.read()),
                   ),
                 ],
                 child: child ?? const SetDestinationScreen(),

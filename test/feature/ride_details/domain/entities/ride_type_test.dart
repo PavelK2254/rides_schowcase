@@ -9,7 +9,6 @@ void main() {
         'imagePath': 'path/to/image.png',
         'description': 'Standard ride',
         'price': '10.00',
-        'eta': '5 mins',
       };
 
       final rideType = RideType.fromJson(json);
@@ -18,7 +17,6 @@ void main() {
       expect(rideType.imagePath, 'path/to/image.png');
       expect(rideType.description, 'Standard ride');
       expect(rideType.price, '10.00');
-      expect(rideType.eta, '5 mins');
     });
 
     test('fromJson throws an error when required fields are missing', () {
@@ -37,7 +35,6 @@ void main() {
         imagePath: 'path/to/image.png',
         description: 'Standard ride',
         price: '10.00',
-        eta: '5 mins',
       );
 
       final json = rideType.toJson();
@@ -46,7 +43,6 @@ void main() {
       expect(json['imagePath'], 'path/to/image.png');
       expect(json['description'], 'Standard ride');
       expect(json['price'], '10.00');
-      expect(json['eta'], '5 mins');
     });
   });
 }
