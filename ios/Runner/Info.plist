@@ -54,5 +54,7 @@
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>$(FLAVOR_APP_NAME) needs access to your location.</string>
+	<key>DART_DEFINES</key>
+    <string>$(DART_DEFINES)</string>
 </dict>
 </plist>
