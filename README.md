@@ -10,161 +10,102 @@ Showcase app for ride booking
 
 ---
 
-## Getting Started 🚀
+## Project Overview
 
-This project contains 3 flavors:
+This project is a ride-sharing application built using Flutter. It includes features such as ride booking, ride summary, and location services using Google Maps.
 
-- development
-- staging
-- production
+### Technologies Used
+- Dart
+- Flutter
+- Bloc for state management
+- Google Maps API
+- Mocktail for testing
 
-To run the desired flavor either use the launch configuration in VSCode/Android Studio or use the following commands:
+## Getting Started
 
+### Prerequisites
+- Flutter SDK
+- Dart SDK
+- Android Studio or Visual Studio Code
+- A valid Google Maps API key
+
+### Installation
+
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/PavelK2254/rides_schowcase.git
+   cd rides_showcase
+   ```
+
+2. **Install dependencies:**
+   ```sh
+   flutter pub get
+   ```
+
+3. **Set up the Google Maps API key:**
+    - Create a `keys.json` file in the root directory of the project.
+    - Add your Google Maps API key to the `keys.json` file in the following format:
+      ```json
+      {
+        "GOOGLE_MAPS_API_KEY": "YOUR_API_KEY_HERE"
+      }
+      ```
+
+4. **Run the application:**
+   ```sh
+   flutter run --dart-define-from-file=keys.json
+   ```
+
+## Project Structure
+
+- `lib/`: Contains the main source code for the application.
+    - `feature/`: Contains the different features of the application.
+        - `main_flow/`: Main flow of the application.
+        - `ride_summary/`: Ride summary feature.
+        - `ride_details/`: Ride details feature.
+    - `styleguide/`: Contains styling and dimensions used throughout the app.
+- `test/`: Contains unit and widget tests for the application.
+
+## Usage
+
+### Booking a Ride
+
+1. Open the application.
+2. Enter the pickup and drop-off locations.
+3. Select the ride type and passenger amount.
+4. Confirm the booking.
+
+### Viewing Ride Summary
+
+1. Navigate to the ride summary screen.
+2. View the details of the booked ride, including pickup and drop-off locations, ride type, and passenger amount.
+
+## Running Tests
+
+To run the unit and widget tests, use the following command:
 ```sh
-# Development
-$ flutter run --flavor development --target lib/main_development.dart
-
-# Staging
-$ flutter run --flavor staging --target lib/main_staging.dart
-
-# Production
-$ flutter run --flavor production --target lib/main_production.dart
+flutter test
 ```
 
-_\*Rides Showcase works on iOS, Android, Web, and Windows._
+## API Key Configuration
 
----
+To use the Google Maps API, you need to provide a valid API key. The API key should be stored in a `keys.json` file and passed to the application using the `--dart-define-from-file` flag.
 
-## Running Tests 🧪
+Example `keys.json` file:
+```json
+{
+  "GOOGLE_MAPS_API_KEY": "YOUR_API_KEY_HERE"
+}
+```
 
-To run all unit and widget tests use the following command:
-
+Run the application with the API key:
 ```sh
-$ flutter test --coverage --test-randomize-ordering-seed random
+flutter run --dart-define-from-file=keys.json
 ```
 
-To view the generated coverage report you can use [lcov](https://github.com/linux-test-project/lcov).
+## License
 
-```sh
-# Generate Coverage Report
-$ genhtml coverage/lcov.info -o coverage/
-
-# Open Coverage Report
-$ open coverage/index.html
-```
-
----
-
-## Working with Translations 🌐
-
-This project relies on [flutter_localizations][flutter_localizations_link] and follows the [official internationalization guide for Flutter][internationalization_link].
-
-### Adding Strings
-
-1. To add a new localizable string, open the `app_en.arb` file at `lib/l10n/arb/app_en.arb`.
-
-```arb
-{
-    "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
-}
-```
-
-2. Then add a new key/value and description
-
-```arb
-{
-    "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    },
-    "helloWorld": "Hello World",
-    "@helloWorld": {
-        "description": "Hello World Text"
-    }
-}
-```
-
-3. Use the new string
-
-```dart
-import 'package:rides_showcase/l10n/l10n.dart';
-
-@override
-Widget build(BuildContext context) {
-  final l10n = context.l10n;
-  return Text(l10n.helloWorld);
-}
-```
-
-### Adding Supported Locales
-
-Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info.plist` to include the new locale.
-
-```xml
-    ...
-
-    <key>CFBundleLocalizations</key>
-	<array>
-		<string>en</string>
-		<string>es</string>
-	</array>
-
-    ...
-```
-
-### Adding Translations
-
-1. For each supported locale, add a new ARB file in `lib/l10n/arb`.
-
-```
-├── l10n
-│   ├── arb
-│   │   ├── app_en.arb
-│   │   └── app_es.arb
-```
-
-2. Add the translated strings to each `.arb` file:
-
-`app_en.arb`
-
-```arb
-{
-    "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
-}
-```
-
-`app_es.arb`
-
-```arb
-{
-    "@@locale": "es",
-    "counterAppBarTitle": "Contador",
-    "@counterAppBarTitle": {
-        "description": "Texto mostrado en la AppBar de la página del contador"
-    }
-}
-```
-
-### Generating Translations
-
-To use the latest translations changes, you will need to generate them:
-
-1. Generate localizations for the current project:
-
-```sh
-flutter gen-l10n --arb-dir="lib/l10n/arb"
-```
-
-Alternatively, run `flutter run` and code generation will take place automatically.
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
 [coverage_badge]: coverage_badge.svg
 [flutter_localizations_link]: https://api.flutter.dev/flutter/flutter_localizations/flutter_localizations-library.html
